@@ -101,6 +101,7 @@ namespace CSE341_final_review
         {
             Random rnd = new Random();
             int i;
+            _total = 0;
 
             while(_input.Count() != 0)
             {
