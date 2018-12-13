@@ -21,7 +21,9 @@ namespace CSE341_final_review
 
         List<Point> _random;
 
+        int _total;
 
+        int _completed;
         
 
         public Form1()
@@ -42,6 +44,9 @@ namespace CSE341_final_review
             _input = new List<Point>();
 
             _random = new List<Point>();
+
+            _total = 0;
+            _completed = 0;
 
             
         }
@@ -102,6 +107,8 @@ namespace CSE341_final_review
                 i = rnd.Next(_input.Count());
                 _random.Add(_input.ElementAt(i));
                 _input.RemoveAt(i);
+
+                ++_total;
             }
         }
 
@@ -165,11 +172,15 @@ namespace CSE341_final_review
             questionBuilder();
             Point current = _random.ElementAt(0);
 
+            _completed = 0;
+
             HwSelectPanel.Visible = false;
             HWViewPanel.Visible = true;
 
             HWViewTitle.Text = "HW#" + current.X.ToString() + " Q#" + current.Y.ToString();
             QPanelView.BackgroundImage = Image.FromFile(_filepath_prob + current.X.ToString() + "_" + current.Y.ToString() + ".png");
+
+            HWViewProgress.Text = _completed.ToString() + " / " + _total.ToString();
         }
 
         private void gotoMenu_Click(object sender, EventArgs e)
@@ -188,6 +199,7 @@ namespace CSE341_final_review
             Point current = _random.ElementAt(0);
             HWViewTitle.Text = "HW#" + current.X.ToString() + " Q#" + current.Y.ToString();
             QPanelView.BackgroundImage = Image.FromFile(_filepath_prob + current.X.ToString() + "_" + current.Y.ToString() + ".png");
+            DoneMarker.Enabled = true;
         }
 
         private void ShowAnswer_Click(object sender, EventArgs e)
@@ -195,13 +207,18 @@ namespace CSE341_final_review
             Point current = _random.ElementAt(0);
             HWViewTitle.Text = "HW#" + current.X.ToString() + " Q#" + current.Y.ToString() + " - Answer";
             QPanelView.BackgroundImage = Image.FromFile(_filepath_soln + current.X.ToString() + "_" + current.Y.ToString() + ".png");
+            DoneMarker.Enabled = false;
         }
 
         private void DoneMarker_Click(object sender, EventArgs e)
         {
             _random.RemoveAt(0);
 
-            if(_random.Count() != 0)
+            ++_completed;
+
+            HWViewProgress.Text = _completed.ToString() + " / " + _total.ToString();
+
+            if (_random.Count() != 0)
             {
                 Point current = _random.ElementAt(0);
                 HWViewTitle.Text = "HW#" + current.X.ToString() + " Q#" + current.Y.ToString();

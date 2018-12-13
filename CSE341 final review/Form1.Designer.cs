@@ -39,12 +39,13 @@
             this.HWSelectRangeRB = new System.Windows.Forms.RadioButton();
             this.HWIncludeListRB = new System.Windows.Forms.RadioButton();
             this.HWViewPanel = new System.Windows.Forms.Panel();
+            this.DoneMarker = new System.Windows.Forms.Button();
+            this.QPanelView = new System.Windows.Forms.Panel();
+            this.ShowAnswer = new System.Windows.Forms.Button();
+            this.SKIP = new System.Windows.Forms.Button();
             this.gotoMenu = new System.Windows.Forms.Button();
             this.HWViewTitle = new System.Windows.Forms.Label();
-            this.SKIP = new System.Windows.Forms.Button();
-            this.ShowAnswer = new System.Windows.Forms.Button();
-            this.QPanelView = new System.Windows.Forms.Panel();
-            this.DoneMarker = new System.Windows.Forms.Button();
+            this.HWViewProgress = new System.Windows.Forms.Label();
             this.HwSelectPanel.SuspendLayout();
             this.HWViewPanel.SuspendLayout();
             this.SuspendLayout();
@@ -186,6 +187,7 @@
             // HWViewPanel
             // 
             this.HWViewPanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.HWViewPanel.Controls.Add(this.HWViewProgress);
             this.HWViewPanel.Controls.Add(this.DoneMarker);
             this.HWViewPanel.Controls.Add(this.QPanelView);
             this.HWViewPanel.Controls.Add(this.ShowAnswer);
@@ -196,6 +198,47 @@
             this.HWViewPanel.Name = "HWViewPanel";
             this.HWViewPanel.Size = new System.Drawing.Size(810, 453);
             this.HWViewPanel.TabIndex = 1;
+            // 
+            // DoneMarker
+            // 
+            this.DoneMarker.Location = new System.Drawing.Point(413, 389);
+            this.DoneMarker.Name = "DoneMarker";
+            this.DoneMarker.Size = new System.Drawing.Size(120, 40);
+            this.DoneMarker.TabIndex = 5;
+            this.DoneMarker.Text = "Mark as Done";
+            this.DoneMarker.UseVisualStyleBackColor = true;
+            this.DoneMarker.Click += new System.EventHandler(this.DoneMarker_Click);
+            // 
+            // QPanelView
+            // 
+            this.QPanelView.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.QPanelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.QPanelView.Location = new System.Drawing.Point(18, 58);
+            this.QPanelView.Name = "QPanelView";
+            this.QPanelView.Size = new System.Drawing.Size(776, 325);
+            this.QPanelView.TabIndex = 4;
+            // 
+            // ShowAnswer
+            // 
+            this.ShowAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShowAnswer.Location = new System.Drawing.Point(202, 389);
+            this.ShowAnswer.Name = "ShowAnswer";
+            this.ShowAnswer.Size = new System.Drawing.Size(120, 40);
+            this.ShowAnswer.TabIndex = 3;
+            this.ShowAnswer.Text = "Show Answer";
+            this.ShowAnswer.UseVisualStyleBackColor = true;
+            this.ShowAnswer.Click += new System.EventHandler(this.ShowAnswer_Click);
+            // 
+            // SKIP
+            // 
+            this.SKIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SKIP.Location = new System.Drawing.Point(638, 389);
+            this.SKIP.Name = "SKIP";
+            this.SKIP.Size = new System.Drawing.Size(120, 40);
+            this.SKIP.TabIndex = 2;
+            this.SKIP.Text = "SKIP";
+            this.SKIP.UseVisualStyleBackColor = true;
+            this.SKIP.Click += new System.EventHandler(this.SKIP_Click);
             // 
             // gotoMenu
             // 
@@ -218,46 +261,14 @@
             this.HWViewTitle.Text = "\'HW#\' \'Q#\'";
             this.HWViewTitle.UseMnemonic = false;
             // 
-            // SKIP
+            // HWViewProgress
             // 
-            this.SKIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SKIP.Location = new System.Drawing.Point(638, 389);
-            this.SKIP.Name = "SKIP";
-            this.SKIP.Size = new System.Drawing.Size(120, 40);
-            this.SKIP.TabIndex = 2;
-            this.SKIP.Text = "SKIP";
-            this.SKIP.UseVisualStyleBackColor = true;
-            this.SKIP.Click += new System.EventHandler(this.SKIP_Click);
-            // 
-            // ShowAnswer
-            // 
-            this.ShowAnswer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ShowAnswer.Location = new System.Drawing.Point(202, 389);
-            this.ShowAnswer.Name = "ShowAnswer";
-            this.ShowAnswer.Size = new System.Drawing.Size(120, 40);
-            this.ShowAnswer.TabIndex = 3;
-            this.ShowAnswer.Text = "Show Answer";
-            this.ShowAnswer.UseVisualStyleBackColor = true;
-            this.ShowAnswer.Click += new System.EventHandler(this.ShowAnswer_Click);
-            // 
-            // QPanelView
-            // 
-            this.QPanelView.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.QPanelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.QPanelView.Location = new System.Drawing.Point(18, 58);
-            this.QPanelView.Name = "QPanelView";
-            this.QPanelView.Size = new System.Drawing.Size(776, 325);
-            this.QPanelView.TabIndex = 4;
-            // 
-            // DoneMarker
-            // 
-            this.DoneMarker.Location = new System.Drawing.Point(413, 389);
-            this.DoneMarker.Name = "DoneMarker";
-            this.DoneMarker.Size = new System.Drawing.Size(120, 40);
-            this.DoneMarker.TabIndex = 5;
-            this.DoneMarker.Text = "Mark as Done";
-            this.DoneMarker.UseVisualStyleBackColor = true;
-            this.DoneMarker.Click += new System.EventHandler(this.DoneMarker_Click);
+            this.HWViewProgress.AutoSize = true;
+            this.HWViewProgress.Location = new System.Drawing.Point(728, 20);
+            this.HWViewProgress.Name = "HWViewProgress";
+            this.HWViewProgress.Size = new System.Drawing.Size(30, 13);
+            this.HWViewProgress.TabIndex = 6;
+            this.HWViewProgress.Text = "0 / 0";
             // 
             // Form1
             // 
@@ -295,6 +306,7 @@
         private System.Windows.Forms.Button ShowAnswer;
         private System.Windows.Forms.Button SKIP;
         private System.Windows.Forms.Button DoneMarker;
+        private System.Windows.Forms.Label HWViewProgress;
     }
 }
 
